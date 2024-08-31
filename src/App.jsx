@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import './assets/scrollbar.css'
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import DashboardCard from "./components/DashboardCard";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -21,7 +22,7 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
     {/* Header */}
-    <header className="h-[80px] border-b border-customGray">
+    <header className="h-[80px] border-b border-customGray fixed top-0 right-0 left-0">
       <div className="container mx-auto flex items-center h-full">
         <h1 className="text-lg font-bold ">
           <img src="../public/logo.svg" alt="" />
@@ -52,7 +53,7 @@ function App() {
         <div className="flex">
           {/* Sidebar */}
           <div
-            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-[#F5F5F5] border-r border-customGray transition-transform transform ${
+            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-secondary border-r border-customGray transition-transform transform ${
               isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             } w-[250px] p-5 overflow-y-auto`}
           >
@@ -178,7 +179,7 @@ function App() {
           </div>
 
           {/* Main Content */}
-          <div className={`transition-all duration-300 p-5 ${
+          <div className={`flex flex-col mt-[80px] transition-all duration-300 p-5 ${
             isSidebarOpen ? 'ml-[250px] w-[calc(100vw-250px)]' : 'w-full'
           }`}
           >
@@ -194,13 +195,13 @@ function App() {
               )
             }
             
-            <div className=""> 
+            <div className="w-full flex-1"> 
                 <div className="flex justify-between">
                   <div className="">
-                    <button className="bg-white rounded-lg border border-dark text-sm p-2 me-3">
+                    <button className="bg-white rounded-lg border border-dark text-sm p-2 me-2.5">
                       Back
                     </button>
-                    <span className="text-xl bg-gradient-to-b font-bold from-customPurple to-customPurpleDark inline-block text-transparent bg-clip-text">Brand name</span>
+                    <span className="text-xl bg-gradient-to-b font-[600px] from-customPurple to-customPurpleDark inline-block text-transparent bg-clip-text">Brand name</span>
                   </div>
                   <div className="flex items-center gap-5">
                     <span>Show:</span>
@@ -219,6 +220,15 @@ function App() {
                   </div>
                 </div>
                 <div className="border-b border-customGray  my-5"></div>
+            </div>
+            
+
+            {/* content cards */}
+            <div className="flex flex-wrap gap-5">
+              <DashboardCard />
+              <DashboardCard />
+              <DashboardCard />
+              <DashboardCard />
             </div>
           </div>
         </div>
