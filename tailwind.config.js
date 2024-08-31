@@ -9,7 +9,9 @@ export default {
       colors: {
         customGray: '#B4B4B4',
         customPurple: '#A259FF',
-        textMuted: '#7F7F7F'
+        customPurpleDark: '#613599',
+        textMuted: '#7F7F7F',
+        dark: '#000000'
       },
     },
   },

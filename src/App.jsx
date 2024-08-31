@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './assets/scrollbar.css'
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
+  useEffect(() => {
+    const handleChange = (e) => {
+      console.log('event', e);
+    };
+  
+    window.addEventListener('change', handleChange);
+  
+    return () => {
+      window.removeEventListener('change', handleChange);
+    };
+  })
   return (
     <div className="min-h-screen flex flex-col">
     {/* Header */}
@@ -36,13 +48,13 @@ function App() {
     </header>
 
      
-     <main className="">
+    <main className="">
         <div className="flex">
           {/* Sidebar */}
           <div
-            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-[#F5F5F5] border-r border-[#B4B4B4] transition-transform transform ${
+            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-[#F5F5F5] border-r border-customGray transition-transform transform ${
               isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-            } w-64 p-5 overflow-y-auto`}
+            } w-[250px] p-5 overflow-y-auto`}
           >
             <div className="nav-content">
               <ul>
@@ -53,8 +65,8 @@ function App() {
                       Inspirations
                     </div>
                     
-                    <button className="py-5 ps-5" onClick={toggleSidebar}>
-                    <img src="../public/btn-nav-chevron.svg" alt="" />
+                    <button className="" onClick={toggleSidebar}>
+                      <img src="../public/btn-nav-chevron.svg" alt="" />
                     </button>
                   </div>
                 </li>
@@ -166,17 +178,51 @@ function App() {
           </div>
 
           {/* Main Content */}
-          <div className="flex-1 p-5">
-            <button
-              className="bg-green-500 text-white py-2 px-4 rounded"
-              onClick={toggleSidebar}
-            >
-              {isSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
-            </button>
-            <div className="mt-5">Main Content Here</div>
+          <div className={`transition-all duration-300 p-5 ${
+            isSidebarOpen ? 'ml-[250px] w-[calc(100vw-250px)]' : 'w-full'
+          }`}
+          >
+            {
+              !isSidebarOpen && (
+                <button
+                  className=""
+                  onClick={toggleSidebar}
+                >
+                
+                  <MdKeyboardDoubleArrowRight size={24} />
+                </button>
+              )
+            }
+            
+            <div className=""> 
+                <div className="flex justify-between">
+                  <div className="">
+                    <button className="bg-white rounded-lg border border-dark text-sm p-2 me-3">
+                      Back
+                    </button>
+                    <span className="text-xl bg-gradient-to-b font-bold from-customPurple to-customPurpleDark inline-block text-transparent bg-clip-text">Brand name</span>
+                  </div>
+                  <div className="flex items-center gap-5">
+                    <span>Show:</span>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons.svg" alt="" /> <span>Templates</span> <img src="" alt="" /></button>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (1).svg" alt="" />Email<img src="../public/tag-pro.svg" /></button>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (2).svg" alt="" />Landers<img src="../public/tag-pro.svg" /></button>
+                    <button className="flex items-center rounded-lg bg-gradient-to-b  from-customPurple to-customPurpleDark text-white text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (3).svg" alt="" /><span>Funnel</span><img src="../public/tag-pro.svg" /></button>
+                  </div>
+                  <div className="">
+                  <button className="bg-white rounded-lg border border-dark text-sm p-2 me-2">
+                      Save
+                    </button>
+                    <button className="bg-white rounded-lg border border-dark text-sm p-2">
+                      Share
+                    </button>
+                  </div>
+                </div>
+                <div className="border-b border-customGray  my-5"></div>
+            </div>
           </div>
         </div>
-      </main>
+    </main>
 
        
     </div>
