@@ -2,16 +2,16 @@
   direction: rtl;
 }
 
-.scrollbar-left::-webkit-scrollbar {
+.scrollbar-left::-webkit-scrollbar, ::-webkit-scrollbar {
   width: 2px; 
 }
 
-.scrollbar-left::-webkit-scrollbar-thumb {
+.scrollbar-left::-webkit-scrollbar-thumb{
   background-color: #A259FF;
   border-radius: 1px; 
 }
 
-.scrollbar-left::-webkit-scrollbar-track {
+.scrollbar-left::-webkit-scrollbar-track{
   background-color: #F5F5F5; 
 }
 

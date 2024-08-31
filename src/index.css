@@ -5,3 +5,8 @@
 .main-container{
   width: calc(100%-250px)!important
 }
+
+.max-width {
+  width: 100%;
+  max-width: 1300px
+}

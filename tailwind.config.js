@@ -15,12 +15,12 @@ export default {
         secondary: '#F5F5F5',
         darkGray: '#B4B4B4'
       },
-      width: {
-        'dasboardCardW': '600px',  
+      screens: {
+        'min-1220': '1220px',
       },
-      height: {
-        'dasboardCardH': '586px', 
-      },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      }
     },
   },
   plugins: [],

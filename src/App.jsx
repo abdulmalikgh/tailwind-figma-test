@@ -2,29 +2,46 @@ import { useEffect, useState } from "react";
 import './assets/scrollbar.css'
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import DashboardCard from "./components/DashboardCard";
+import { TiThMenu } from "react-icons/ti";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
+  const handleResize = () => {
+    if (window.innerWidth <= 767) {
+      setSidebarOpen(false);
+    }
+  };
   useEffect(() => {
-    const handleChange = (e) => {
-      console.log('event', e);
-    };
-  
-    window.addEventListener('change', handleChange);
-  
+    handleResize();
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener('change', handleChange);
+      window.removeEventListener('resize', handleResize);
     };
-  })
+  }, []); 
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col font-inter">
     {/* Header */}
-    <header className="h-[80px] border-b border-customGray fixed top-0 right-0 left-0">
-      <div className="container mx-auto flex items-center h-full">
-        <h1 className="text-lg font-bold ">
+    <header className="h-[80px] border-b px-5 border-customGray fixed top-0 right-0 left-0 z-10 bg-white">
+      <div className="mx-auto flex items-center h-full">
+        <h1 className="text-lg font-bold flex items-center">
+          <button className="flex md:hidden" onClick={toggleSidebar}>
+            <TiThMenu size={24} color="#000"/>
+          </button>
+          {
+              !isSidebarOpen && (
+                <button
+                  className="hidden md:flex"
+                  onClick={toggleSidebar}
+                >
+                
+                  <MdKeyboardDoubleArrowRight size={24} />
+                </button>
+              )
+            }
           <img src="../public/logo.svg" alt="" />
         </h1>
         {/* Input here */}
@@ -47,15 +64,14 @@ function App() {
         </div>
       </div>
     </header>
-
-     
+    {/* HEADER */}
     <main className="">
         <div className="flex">
           {/* Sidebar */}
           <div
-            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-secondary border-r border-customGray transition-transform transform ${
+            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-secondary border-r border-customGray transition-transform transform w-[250px] ${
               isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-            } w-[250px] p-5 overflow-y-auto`}
+            }   p-5 overflow-y-auto`}
           >
             <div className="nav-content">
               <ul>
@@ -117,9 +133,9 @@ function App() {
                 </ul>
               </div>
             </div>
-            <div className="border-b border-customGray w-[190px] my-5"></div>
-            <div className="mb-10">
-              <div className="flex justify-between mb-3">
+            <div className="border-b border-customGray w-[190px] my-4"></div>
+            <div className="mb-12">
+              <div className="flex justify-between mb-3 ps-3">
                 <h4 className="text-sm text-textMuted">Saved</h4>
                 <button>
                   <img src="../public/add-collection.svg" alt="" />
@@ -161,18 +177,18 @@ function App() {
                     </li>
                   </ul>
               </div>
-              <div className="text-sm mt-2">View all boards</div>
+              <div className="text-sm mt-3">View all boards</div>
             </div>
-            <div className="border-b border-customGray w-[190px] my-5"></div>
+            <div className="border-b border-customGray w-[190px] my-3"></div>
             <div className="">
               <ul>
                 <li className="cursor-pointer text-base pb-2">Settings</li>
                 <li className="cursor-pointer text-base pb-2">Help & Feedback</li>
-                <li className="cursor-pointer text-base pb-2">Join the CreativeOS Slack</li>
+                <li className="cursor-pointer text-base">Join the CreativeOS Slack</li>
               </ul>
             </div>
-            <div className="border-b border-customGray w-[190px] my-5"></div>
-            <div className="flex items-center gap-5">
+            <div className="border-b border-customGray w-[190px] my-3"></div>
+            <div className="flex items-center gap-2 mt-2">
               <div className="h-10 w-10 rounded-full bg-customPurple"></div>
               <p>My Account</p>
             </div>
@@ -183,48 +199,35 @@ function App() {
             isSidebarOpen ? 'ml-[250px] w-[calc(100vw-250px)]' : 'w-full'
           }`}
           >
-            {
-              !isSidebarOpen && (
-                <button
-                  className=""
-                  onClick={toggleSidebar}
-                >
-                
-                  <MdKeyboardDoubleArrowRight size={24} />
-                </button>
-              )
-            }
-            
-            <div className="w-full flex-1"> 
-                <div className="flex justify-between">
-                  <div className="">
-                    <button className="bg-white rounded-lg border border-dark text-sm p-2 me-2.5">
-                      Back
-                    </button>
-                    <span className="text-xl bg-gradient-to-b font-[600px] from-customPurple to-customPurpleDark inline-block text-transparent bg-clip-text">Brand name</span>
-                  </div>
-                  <div className="flex items-center gap-5">
-                    <span>Show:</span>
-                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons.svg" alt="" /> <span>Templates</span> <img src="" alt="" /></button>
-                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (1).svg" alt="" />Email<img src="../public/tag-pro.svg" /></button>
-                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (2).svg" alt="" />Landers<img src="../public/tag-pro.svg" /></button>
-                    <button className="flex items-center rounded-lg bg-gradient-to-b  from-customPurple to-customPurpleDark text-white text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (3).svg" alt="" /><span>Funnel</span><img src="../public/tag-pro.svg" /></button>
-                  </div>
-                  <div className="">
-                  <button className="bg-white rounded-lg border border-dark text-sm p-2 me-2">
-                      Save
-                    </button>
-                    <button className="bg-white rounded-lg border border-dark text-sm p-2">
-                      Share
-                    </button>
-                  </div>
+          
+          <div className="w-full flex-1 justify-between border-b border-customGray pb-5 mb-5"> 
+            <div className="flex justify-between">
+                <div className="flex items-center gap-2">
+                  <button className="bg-white rounded-lg border border-dark text-sm p-2">
+                    Back
+                  </button>
+                  <span className="text-xl bg-gradient-to-b font-[600px] from-customPurple to-customPurpleDark inline-block text-transparent bg-clip-text">Brand name</span>
                 </div>
-                <div className="border-b border-customGray  my-5"></div>
+                <div className="hidden lg:flex items-center gap-5">
+                  <span>Show:</span>
+                <div className="flex items-center gap-5">
+                  <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons.svg" alt="" /> <span className="hidden min-1220:block">Templates</span> <img src="" alt="" /></button>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (1).svg" alt="" /><span className="hidden min-1220:block">Email</span><img src="../public/tag-pro.svg" /></button>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (2).svg" alt="" /><span className="hidden min-1220:block">Landers</span><img src="../public/tag-pro.svg" /></button>
+                    <button className="flex items-center rounded-lg bg-gradient-to-b  from-customPurple to-customPurpleDark text-white text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (3).svg" alt="" /><span><span className="hidden min-1220:block">Funnel</span></span><img src="../public/tag-pro.svg" /></button>
+                </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button className="bg-white rounded-lg border border-dark text-sm p-2 ">
+                    Save
+                  </button>
+                  <button className="bg-white rounded-lg border border-dark text-sm p-2">
+                    Share
+                  </button>
+                </div>
+              </div>
             </div>
-            
-
-            {/* content cards */}
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap gap-5 max-width">
               <DashboardCard />
               <DashboardCard />
               <DashboardCard />
@@ -233,6 +236,7 @@ function App() {
           </div>
         </div>
     </main>
+
 
        
     </div>
