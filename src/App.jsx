@@ -6,12 +6,17 @@ import { TiThMenu } from "react-icons/ti";
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
   const handleResize = () => {
     if (window.innerWidth <= 767) {
       setSidebarOpen(false);
+      setIsSmallScreen(true)
+    }
+    if (window.innerWidth > 767) {
+      setIsSmallScreen(false)
     }
   };
   useEffect(() => {
@@ -69,14 +74,14 @@ function App() {
         <div className="flex">
           {/* Sidebar */}
           <div
-            className={`fixed top-[80px] left-0 h-[calc(100vh-80px)] bg-secondary border-r border-customGray transition-transform transform w-[250px] ${
+            className={`fixed top-[80px] md:z-10 left-0 h-[calc(100vh-80px)] bg-secondary border-r border-customGray transition-transform transform w-[250px] ${
               isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
             }   p-5 overflow-y-auto`}
           >
             <div className="nav-content">
               <ul>
                 <li className="cursor-pointer">
-                  <div className="flex items-center ps-3 py-2.5 font-semibold text-[14px] leading-[16.94px]">
+                  <div className="flex items-center ps-3 py-3 font-semibold text-[14px] leading-[16.94px]">
                     <div className="flex items-center w-full gap-3">
                       <img src="../public/compass.svg" alt="" />
                       Inspirations
@@ -88,7 +93,7 @@ function App() {
                   </div>
                 </li>
                 <li className="cursor-pointer">
-                  <div className="flex items-center ps-3 py-2.5 font-semibold text-[14px] leading-[16.94px]">
+                  <div className="flex items-center ps-3 py-3 font-semibold text-[14px] leading-[16.94px]">
                     <div className="flex items-center w-full gap-3">
                       <img src="../public/templates.svg" alt="" />
                       Templates
@@ -96,7 +101,7 @@ function App() {
                   </div>
                 </li>
                 <li className="cursor-pointer">
-                  <div className="flex items-center ps-3 py-2.5 font-semibold text-[14px] leading-[16.94px]">
+                  <div className="flex items-center ps-3 py-3 font-semibold text-[14px] leading-[16.94px]">
                     <div className="flex items-center w-full gap-3">
                       <img src="../public/collections.svg" alt="" />
                       Collections
@@ -104,8 +109,8 @@ function App() {
                   </div>
                 </li>
                 <li className="cursor-pointer">
-                  <div className="flex items-center ps-3 py-2.5 font-semibold text-[14px] leading-[16.94px] rounded-lg border border-[#A259FF]">
-                    <div className="flex items-center w-full gap-3">
+                  <div className="flex items-center font-semibold text-[14px] leading-[16.94px] h-[46px] rounded-lg bg-gradient-to-b from-customPurple to-customPurpleDark p-[1px]">
+                    <div className="flex items-center w-full gap-3 h-full bg-secondary rounded-lg ps-3">
                       <img src="../public/brands.svg" alt="" />
                       Brands
                     </div>
@@ -118,15 +123,15 @@ function App() {
               <h3 className="text-textMuted text-xs">FEATURED</h3>
               <div className="">
                 <ul>
-                  <li className="flex items-center gap-5 text-sm py-2 px-5 cursor-pointer">
+                  <li className="flex items-center gap-5 text-sm py-1.5 px-5 cursor-pointer">
                     <span>Hidden gems</span>
                     <img src="../public/tag-pro.svg" alt="" />
                   </li>
-                  <li className="flex items-center gap-5 text-sm py-2 px-5 cursor-pointer">
+                  <li className="flex items-center gap-5 text-sm py-1.5 px-5 cursor-pointer">
                     <span>Evergreen ads</span>
                     <img src="../public/tag-pro.svg" alt="" />
                   </li>
-                  <li className="flex items-center gap-5 text-sm py-2 px-5 cursor-pointer">
+                  <li className="flex items-center gap-5 text-sm py-1.5 px-5 cursor-pointer">
                     <span>Testing lab</span>
                     <img src="../public/tag-pro.svg" alt="" />
                   </li>
@@ -196,7 +201,7 @@ function App() {
 
           {/* Main Content */}
           <div className={`flex flex-col mt-[80px] transition-all duration-300 p-5 ${
-            isSidebarOpen ? 'ml-[250px] w-[calc(100vw-250px)]' : 'w-full'
+            isSidebarOpen && !isSmallScreen ? 'ml-[250px] w-[calc(100vw-250px)]' : 'w-full'
           }`}
           >
           
@@ -230,6 +235,8 @@ function App() {
             <div className="flex flex-wrap gap-5 max-width">
               <DashboardCard />
               <DashboardCard />
+            </div>
+            <div className="flex flex-wrap gap-5 max-width mt-5">
               <DashboardCard />
               <DashboardCard />
             </div>
