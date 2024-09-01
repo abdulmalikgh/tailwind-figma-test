@@ -47,13 +47,13 @@ function App() {
                 </button>
               )
             }
-          <img src="../public/logo.svg" alt="" />
+          <img src="/logo.svg" alt="" />
         </h1>
         {/* Input here */}
         <div className="w-full flex items-center justify-center px-5">
         <div className="relative w-full max-w-[598px]">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-            <img src="../public/fi-br-search.svg" alt="Search Icon" />
+            <img src="/fi-br-search.svg" alt="Search Icon" />
           </div>
 
           <input 
@@ -83,19 +83,19 @@ function App() {
                 <li className="cursor-pointer">
                   <div className="flex items-center ps-3 py-3 font-semibold text-[14px] leading-[16.94px]">
                     <div className="flex items-center w-full gap-3">
-                      <img src="../public/compass.svg" alt="" />
+                      <img src="/compass.svg" alt="" />
                       Inspirations
                     </div>
                     
                     <button className="" onClick={toggleSidebar}>
-                      <img src="../public/btn-nav-chevron.svg" alt="" />
+                      <img src="/btn-nav-chevron.svg" alt="" />
                     </button>
                   </div>
                 </li>
                 <li className="cursor-pointer">
                   <div className="flex items-center ps-3 py-3 font-semibold text-[14px] leading-[16.94px]">
                     <div className="flex items-center w-full gap-3">
-                      <img src="../public/templates.svg" alt="" />
+                      <img src="/templates.svg" alt="" />
                       Templates
                     </div>
                   </div>
@@ -103,7 +103,7 @@ function App() {
                 <li className="cursor-pointer">
                   <div className="flex items-center ps-3 py-3 font-semibold text-[14px] leading-[16.94px]">
                     <div className="flex items-center w-full gap-3">
-                      <img src="../public/collections.svg" alt="" />
+                      <img src="/collections.svg" alt="" />
                       Collections
                     </div>
                   </div>
@@ -111,7 +111,7 @@ function App() {
                 <li className="cursor-pointer">
                   <div className="flex items-center font-semibold text-[14px] leading-[16.94px] h-[46px] rounded-lg bg-gradient-to-b from-customPurple to-customPurpleDark p-[1px]">
                     <div className="flex items-center w-full gap-3 h-full bg-secondary rounded-lg ps-3">
-                      <img src="../public/brands.svg" alt="" />
+                      <img src="/brands.svg" alt="" />
                       Brands
                     </div>
                   </div>
@@ -125,15 +125,15 @@ function App() {
                 <ul>
                   <li className="flex items-center gap-5 text-sm py-1.5 px-5 cursor-pointer">
                     <span>Hidden gems</span>
-                    <img src="../public/tag-pro.svg" alt="" />
+                    <img src="/tag-pro.svg" alt="" />
                   </li>
                   <li className="flex items-center gap-5 text-sm py-1.5 px-5 cursor-pointer">
                     <span>Evergreen ads</span>
-                    <img src="../public/tag-pro.svg" alt="" />
+                    <img src="/tag-pro.svg" alt="" />
                   </li>
                   <li className="flex items-center gap-5 text-sm py-1.5 px-5 cursor-pointer">
                     <span>Testing lab</span>
-                    <img src="../public/tag-pro.svg" alt="" />
+                    <img src="/tag-pro.svg" alt="" />
                   </li>
                 </ul>
               </div>
@@ -143,7 +143,7 @@ function App() {
               <div className="flex justify-between mb-3 ps-3">
                 <h4 className="text-sm text-textMuted">Saved</h4>
                 <button>
-                  <img src="../public/add-collection.svg" alt="" />
+                  <img src="/add-collection.svg" alt="" />
                 </button>
               </div>
 
@@ -154,31 +154,31 @@ function App() {
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                     <li className="cursor-pointer text-sm flex justify-between py-2 px-5">
                       <span>Board Name</span>
-                      <img src="../public/dots-expand.svg" alt="" />
+                      <img src="/dots-expand.svg" alt="" />
                     </li>
                   </ul>
               </div>
@@ -216,10 +216,10 @@ function App() {
                 <div className="hidden lg:flex items-center gap-5">
                   <span>Show:</span>
                 <div className="flex items-center gap-5">
-                  <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons.svg" alt="" /> <span className="hidden min-1220:block">Templates</span> <img src="" alt="" /></button>
-                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (1).svg" alt="" /><span className="hidden min-1220:block">Email</span><img src="../public/tag-pro.svg" /></button>
-                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (2).svg" alt="" /><span className="hidden min-1220:block">Landers</span><img src="../public/tag-pro.svg" /></button>
-                    <button className="flex items-center rounded-lg bg-gradient-to-b  from-customPurple to-customPurpleDark text-white text-sm px-3 py-2 gap-2"><img src="../public/filter-icons (3).svg" alt="" /><span><span className="hidden min-1220:block">Funnel</span></span><img src="../public/tag-pro.svg" /></button>
+                  <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="/filter-icons.svg" alt="" /> <span className="hidden min-1220:block">Templates</span> <img src="" alt="" /></button>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="/filter-icons (1).svg" alt="" /><span className="hidden min-1220:block">Email</span><img src="/tag-pro.svg" /></button>
+                    <button className="flex items-center rounded-lg border border-dark text-sm px-3 py-2 gap-2"><img src="/filter-icons (2).svg" alt="" /><span className="hidden min-1220:block">Landers</span><img src="/tag-pro.svg" /></button>
+                    <button className="flex items-center rounded-lg bg-gradient-to-b  from-customPurple to-customPurpleDark text-white text-sm px-3 py-2 gap-2"><img src="/filter-icons (3).svg" alt="" /><span><span className="hidden min-1220:block">Funnel</span></span><img src="/tag-pro.svg" /></button>
                 </div>
                 </div>
                 <div className="flex items-center gap-2">

@@ -10,3 +10,21 @@
   width: 100%;
   max-width: 1300px
 }
+
+.gradient-border {
+  position: relative;
+  padding: 1px; /* Adjust based on the border width you want */
+  border-radius: 6px; /* Ensure the border radius is applied */
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #A259FF, #613599);
+  border-radius: 6px;
+  z-index: -1; /* Place the gradient behind the content */
+}

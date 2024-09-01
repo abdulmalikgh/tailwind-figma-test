@@ -2,7 +2,7 @@ import React from 'react';
 
 const DashboardCard = () => {
   return (
-    <div className="w-[600px] bg-secondary rounded-lg border border-customGray">
+    <div className="w-[600px] md:flex-1 bg-secondary rounded-lg border border-customGray">
       {/* CARD HEADER */}
       <div className="w-full flex justify-between h-[60px] px-2 items-center border-b border-customGray">
         <div className="flex justify-between items-center gap-2">
@@ -44,7 +44,7 @@ const DashboardCard = () => {
         <button className="bg-transparent border border-dark rounded-lg p-2 text-sm">
           Viw Funnel
         </button>
-        <button className="bg-transparent border border-dark rounded-lg py-2 px-3 text-base">
+        <button className="bg-transparent border border-dark rounded-lg p-2 text-base">
           <img src="../public/Group 93.svg" alt="" />
         </button>
       </div>
