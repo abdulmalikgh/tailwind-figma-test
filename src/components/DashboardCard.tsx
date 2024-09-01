@@ -6,7 +6,7 @@ const DashboardCard = () => {
       {/* CARD HEADER */}
       <div className="w-full flex justify-between h-[60px] px-2 items-center border-b border-customGray">
         <div className="flex justify-between items-center gap-2">
-          <img src="../public/Mask group.svg" alt="" />
+          <img src="/Mask group.svg" alt="" />
           <span className="text-base">Caraway</span>
         </div>
         <button className="bg-transparent border border-dark rounded-lg p-2 text-sm">
@@ -20,7 +20,7 @@ const DashboardCard = () => {
           <div className="">
             <h3 className="text-textMuted text-sm mb-1 font-bold">Ad Creative</h3>
             <div className="">
-              <img src="../public/creative-vertical.svg" alt="" />
+              <img src="/creative-vertical.svg" alt="" />
             </div>
           </div>
           <div className="flex-1 flex justify-center items-center">
@@ -29,7 +29,7 @@ const DashboardCard = () => {
           <div className="">
             <h3 className="text-textMuted text-sm mb-1 font-bold">Landing page</h3>
             <div className="">
-              <img src="../public/creative-vertical (1).svg" alt="" />
+              <img src="/creative-vertical (1).svg" alt="" />
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@ const DashboardCard = () => {
           Viw Funnel
         </button>
         <button className="bg-transparent border border-dark rounded-lg p-2 text-base">
-          <img src="../public/Group 93.svg" alt="" />
+          <img src="/Group 93.svg" alt="" />
         </button>
       </div>
     </div>
